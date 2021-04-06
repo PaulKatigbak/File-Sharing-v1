@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.2" fx:controller="Client.Controller">
+    <top>
+        <AnchorPane xmlns:fx="http://javafx.com/fxml">
+            <Button layoutX="33.0" layoutY="45.0" prefHeight="30.0" prefWidth="150.0" text="Upload"/>
+            <Button layoutX="308.0" layoutY="45.0" prefHeight="30.0" prefWidth="150.0" text="Delete"/>
+            <Button layoutX="308.0" layoutY="11.0" prefHeight="30.0" prefWidth="150.0" text="Download"/>
+            <Button layoutX="33.0" layoutY="11.0" onAction="#openDir" prefHeight="30.0" prefWidth="150.0"
+                    text="Choose Directory"/>
+        </AnchorPane>
+    </top>
+    <center>
+        <SplitPane orientation="HORIZONTAL">
+            <items>
+                <TableView fx:id="tableView1" focusTraversable="true">
+                    <columns>
+                        <TableColumn fx:id="localDirectory" prefWidth="244.5999817252159" text="Local Directory" />
+                    </columns>
+                </TableView>
+
+                <TableView fx:id="tableView2">
+                    <columns>
+                        <TableColumn prefWidth="245.00001525878906" text="Server Directory"/>
+                    </columns>
+                </TableView>
+            </items>
+        </SplitPane>
+    </center>
+    <bottom>
+        <AnchorPane>
+            <Button layoutX="14.0" layoutY="1.0"  onAction="#connect" prefHeight="47.0" prefWidth="194.0" text="Connect"/>
+        </AnchorPane>
+    </bottom>
+</BorderPane>

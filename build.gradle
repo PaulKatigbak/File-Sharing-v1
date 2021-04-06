@@ -1,0 +1,52 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.9'
+
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src/main/java']
+        }
+    }
+}
+
+application {
+    mainClassName = 'Server.HTTPServer'
+}
+
+group 'org.packages'
+version '1.0-SNAPSHOT'
+sourceCompatibility = 11
+
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+}
+
+javafx {
+    modules = ['javafx.controls', 'javafx.fxml']
+    version = '11.0.2'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+task(runClient, dependsOn: 'classes', type: JavaExec) {
+    main = 'Client.Main'
+    classpath = sourceSets.main.runtimeClasspath
+}
+
+task(runServer, dependsOn: 'classes', type: JavaExec) {
+    main = 'Server.HTTPServer'
+    classpath = sourceSets.main.runtimeClasspath
+}
+
